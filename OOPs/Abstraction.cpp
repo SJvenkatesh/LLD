@@ -103,8 +103,16 @@ class SportsCar : public Car {
 };
 
 int main(){
-    Car *myCar = new SportsCar("Ford", "Mustang");
+    /*
+    You are creating a SportsCar object on the heap using new.
+    Storing it in a pointer of type Car* (base class pointer).
+    This enables polymorphism.
 
+        ✔ Runtime polymorphism works (virtual functions)
+        ✔ Useful for dynamic behavior
+        ❗ You must manually delete it to avoid memory leaks
+    */
+    Car *myCar = new SportsCar("Ford", "Mustang");
     myCar->startEngine();
     myCar->shiftGear(1);
     myCar->accelerate();
@@ -113,7 +121,43 @@ int main(){
     myCar->brake();
     myCar->stopEngine();
 
-    delete myCar;    
+
+    delete myCar;
+
+    /*
+    You are using a unique_ptr to manage the memory of the SportsCar object.
+    This is a smart pointer that automatically deletes the object when it goes out of scope.
+    */
+
+
+    unique_ptr<Car> myCar2 = make_unique<SportsCar>("Ford", "Mustang");
+    myCar2->startEngine();
+    myCar2->shiftGear(1);
+    myCar2->accelerate();
+    myCar2->shiftGear(2);
+    myCar2->accelerate();
+    myCar2->brake();
+    myCar2->stopEngine();
+
+    /*
+    You are creating a SportsCar object on the stack.
+    Storing it in a variable of type SportsCar (concrete class).
+    This does not enable polymorphism.
+
+        ✔ Compile-time polymorphism works (overloading)
+        ✔ Useful for static behavior
+        ❗ You don't need to manually delete it
+    */
+    // SportsCar mySportsCar("Ford", "Mustang");
+    // mySportsCar.startEngine();
+    // mySportsCar.shiftGear(1);
+    // mySportsCar.accelerate();
+    // mySportsCar.shiftGear(2);
+    // mySportsCar.accelerate();
+    // mySportsCar.brake();
+    // mySportsCar.stopEngine();
+
+    // delete myCar;    
 
     return 0;
 }
