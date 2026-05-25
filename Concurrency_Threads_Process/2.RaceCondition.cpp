@@ -28,7 +28,7 @@ int main() {
     t1.join();
     t2.join();
 
-   cout << "Counter: " << counter <<endl;
+   cout << "Counter: " << counter <<endl; // Counter: 200000
    
     thread t3(increment1);
     thread t4(increment1);
@@ -36,5 +36,5 @@ int main() {
     t3.join();
     t4.join();
 
-    cout << "Counter1: " << counter <<endl;
+    cout << "Counter1: " << counter <<endl; // Counter1: 400000
 }

@@ -19,11 +19,11 @@ void threadA() {
 
 void threadB() {
     cout << "Thread B trying to acquire m2" << endl;
-    // m2.lock();
+    // m2.lock(); // This will cause deadlock as thread A is holding m1 and waiting for m2, while thread B is holding m2 and waiting for m1
     m1.lock();
     cout << "Thread B acquired m2" << endl;
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    // m1.lock();
+    // m1.lock(); // This will cause deadlock as thread A is holding m1 and waiting for m2, while thread B is holding m2 and waiting for m1
     m2.lock();
     cout << "Thread B acquired m1" << endl;
     // critical section
