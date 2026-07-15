@@ -19,13 +19,13 @@ int main() {
     //Number of threads to create 
 
 
-    thread t1(hello);
-    thread t2(hello);
+    thread t1(hello); # Create a new thread that runs the hello function
+    thread t2(hello); 
     thread t3(hello);
 
-    t1.join();
-    t2.join();
-    t3.join();
+    t1.join(); # Wait for thread t1 to finish
+    t2.join(); # Wait for thread t2 to finish
+    t3.join(); # Wait for thread t3 to finish
 
     cout << "All threads completed!" << endl;
     return 0;
