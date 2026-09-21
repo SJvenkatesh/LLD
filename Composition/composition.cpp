@@ -64,9 +64,23 @@ class LuxManualCar : public Car {
     }
 };
 
+void foo() {
+    string value = "value1";
+    cout<<"Value1 : "<<value<<endl;
+
+}
+
 int main() {
     Car* myCar = new LuxManualCar(100000);
+    string name = "venkatesh1";
+    string name2 = "name";
+
+    name = name2;
+    cout<<"Name "<<name<<endl;
+    foo();
+    cout<<"Name2 "<<name2<<endl;
     myCar->displayDetails();
+
     return 0;
 
 }

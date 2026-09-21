@@ -25,7 +25,7 @@ class NotificationService {
 	INotification *notificationMessage;
 	static NotificationService *getInstance(){
 		if(!instance){
-			return new NotificationService();
+			return instance = new NotificationService();
 		}
 		return instance;
 	}

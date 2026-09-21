@@ -18,12 +18,12 @@ class Mario : public ICharacter {
 	}
 };
 
-class CharacterDecorator : public ICharacter {
-protected:
-    ICharacter* ch;
-public:
-    CharacterDecorator(ICharacter* ch) : ch(ch) {}
-};
+// class CharacterDecorator : public ICharacter {
+// protected:
+//     ICharacter* ch;
+// public:
+//     CharacterDecorator(ICharacter* ch) : ch(ch) {}
+// };
 
 
 class IDecorator : public ICharacter{
